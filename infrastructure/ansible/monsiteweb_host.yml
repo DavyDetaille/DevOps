@@ -4,8 +4,6 @@
   remote_user: azureuser
   become: yes
   tasks:
-    - name: installation of docker collection
-      ansible.builtin.command: ansible-galaxy collection install community.docker 
     - name: Add repository
       yum_repository:
         name: epel
@@ -22,8 +20,11 @@
         - lvm2
         - git
         - docker
+        - ansible
     - name: Start service docker, if not started
       ansible.builtin.service:
         name: docker
         state: started
         enabled: yes
+    - name: installation of docker collection
+      ansible.builtin.command: ansible-galaxy collection install community.docker 
