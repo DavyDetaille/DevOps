@@ -3,6 +3,7 @@
   hosts: monsiteweb
   remote_user: azureuser
   become: yes
+  gather_facts: no
   tasks:
     - name: Wait 600 seconds for target connection to become reachable/usable
       wait_for_connection:
