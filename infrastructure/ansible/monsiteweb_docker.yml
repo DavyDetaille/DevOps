@@ -4,11 +4,10 @@
   remote_user: azureuser
   become: yes
   tasks:
-    - name: Copy a Dockerfil file on the remote machine
+    - name: Copy a Dockerfile file on the remote machine
       copy:
         src: "{{dockerfile_path}}/Dockerfile"
         dest: /tmp/Dockerfile
-        remote_src: yes
     - name: Build image using cache source
       command: "docker build --no-cache -f tmp/Dockerfile -t monsiteweb_image ."
     - name: Stop a container
