@@ -15,7 +15,7 @@
         name: monsiteweb
         state: absent
     - name: Clean content of docker
-      command: docker prune -a -f
+      command: docker system prune -a -f
     - name: Restart a container
       docker_container:
         name: monsiteweb
