@@ -1,0 +1,27 @@
+---
+- name: playbook de configuration du host pour le site web
+  hosts: monsiteweb
+  remote_user: azureuser
+  become: yes
+  tasks:
+    - name: Build image using cache source
+      community.docker.docker_image:
+        name: monsiteweb:latest
+        build:
+          path: /Dockerfile
+        source: build
+    - name: Stop a container
+      docker_container:
+        name: monsiteweb
+        state: stopped
+    - name: remove container
+      docker_container:
+        name: monsiteweb
+        state: absent
+    - name: Restart a container
+      docker_container:
+        name: monsiteweb
+        image: monsiteweb
+        state: started
+        ports:
+        - "8080:80"
