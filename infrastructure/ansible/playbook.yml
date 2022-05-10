@@ -18,11 +18,6 @@
         name: epel
         description: EPEL YUM repo
         baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
-   # - name: Add repository
-   #   yum_repository:
-   #     name: docker
-   #     description: docker
-   #     baseurl: https://download.docker.com/linux/centos/docker-ce.repo
     - name: clean
       command: yum clean all
     - package:
