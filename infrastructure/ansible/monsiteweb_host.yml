@@ -4,11 +4,9 @@
   remote_user: azureuser
   become: yes
   tasks:
-    - name: Add repository
-      yum_repository:
-        name: epel
-        description: EPEL YUM repo
-        baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+    - package:
+        name: epel-release
+        state: present
     - name: clean
       command: yum clean all
     - name: make_cache
