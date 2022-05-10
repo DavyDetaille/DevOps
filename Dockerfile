@@ -14,3 +14,4 @@ CMD ["git","pull","https://github.com/DavyDetaille/DevOps.git"]
 CMD ["/usr/sbin/httpd","-D","FOREGROUND"]
 
 test
+test2
