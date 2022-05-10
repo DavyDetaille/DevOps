@@ -1,6 +1,7 @@
 ---
 - name: playbook de configuration du host pour le site web
   hosts: monsiteweb
+  remote_user: azureuser
   become: yes
   tasks:
     - name: Add repository

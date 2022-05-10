@@ -1,7 +1,6 @@
 ---
 - name: playbook de configuration du host pour le site web
   hosts: localhost
-  remote_user: azureuser
   become: yes
   tasks:
     - name: Add Microsoft azure-cli repository
