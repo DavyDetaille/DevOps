@@ -11,6 +11,8 @@
         baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
     - name: clean
       command: yum clean all
+    - name: make_cache
+      command: yum makecache
     - package:
         name: "{{ item}}"
         state: present
