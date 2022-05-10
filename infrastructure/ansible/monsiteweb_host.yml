@@ -5,7 +5,7 @@
   become: yes
   tasks:
     - name: installation of docker collection
-      command: ansible-galaxy collection install community.docker 
+      ansible.builtin.command: ansible-galaxy collection install community.docker 
     - name: Add repository
       yum_repository:
         name: epel
