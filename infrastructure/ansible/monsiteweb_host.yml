@@ -25,6 +25,7 @@
         - docker
         - python2-httplib2
         - ansible
+        - python-docker-py
     - name: Start service docker, if not started
       ansible.builtin.service:
         name: docker
