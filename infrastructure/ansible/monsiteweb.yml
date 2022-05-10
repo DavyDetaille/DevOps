@@ -1,6 +1,6 @@
 ---
 - name: playbook de configuration du host pour le site web
-  hosts: localhost
+  hosts: monsiteweb
   become: yes
   tasks:
     - name: Add repository

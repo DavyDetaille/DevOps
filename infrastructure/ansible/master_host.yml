@@ -1,6 +1,6 @@
 ---
 - name: playbook de configuration du host pour le site web
-  hosts: all
+  hosts: localhost
   remote_user: azureuser
   become: yes
   tasks:
