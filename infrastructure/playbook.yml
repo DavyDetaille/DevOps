@@ -1,18 +1,30 @@
 ---
 - name: playbook de configuration du host pour le site web
-  hosts: localhost
+  hosts: all
+  remote_user: azureuser
   become: yes
   tasks:
+    - name: Add Microsoft azure-cli repository
+      copy:
+        dest: /etc/yum.repos.d/azure-cli.repo
+        content: |
+         [azure-cli]
+         name=Azure CLI
+         baseurl=https://packages.microsoft.com/yumrepos/azure-cli
+         enabled=1
+         gpgcheck=0
     - name: Add repository
       yum_repository:
         name: epel
         description: EPEL YUM repo
         baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
-    - name: Add repository
-      yum_repository:
-        name: epel
-        description: EPEL YUM repo
-        baseurl: https://download.docker.com/linux/centos/docker-ce.repo
+   # - name: Add repository
+   #   yum_repository:
+   #     name: docker
+   #     description: docker
+   #     baseurl: https://download.docker.com/linux/centos/docker-ce.repo
+    - name: clean
+      command: yum clean all
     - package:
         name: "{{ item}}"
         state: present
@@ -22,6 +34,7 @@
         - lvm2
         - git
         - docker
+        - azure-cli
     - name: Start service docker, if not started
       ansible.builtin.service:
         name: docker
