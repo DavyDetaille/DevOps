@@ -5,7 +5,7 @@
   become: yes
   tasks:
     - name: Build image using cache source
-      community.docker.docker_image:
+      docker.docker_image:
         name: monsiteweb:latest
         build:
           path: /Dockerfile
