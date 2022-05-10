@@ -5,11 +5,7 @@
   become: yes
   tasks:
     - name: Build image using cache source
-      docker.docker_image:
-        name: monsiteweb:latest
-        build:
-          path: /Dockerfile
-        source: build
+      command: docker build --no-cache -t monsiteweb_image .
     - name: Stop a container
       docker_container:
         name: monsiteweb
@@ -21,7 +17,7 @@
     - name: Restart a container
       docker_container:
         name: monsiteweb
-        image: monsiteweb
+        image: monsiteweb_image
         state: started
         ports:
         - "8080:80"
