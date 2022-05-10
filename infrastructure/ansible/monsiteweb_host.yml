@@ -20,6 +20,7 @@
         - lvm2
         - git
         - docker
+        - python2-httplib2
         - ansible
     - name: Start service docker, if not started
       ansible.builtin.service:
