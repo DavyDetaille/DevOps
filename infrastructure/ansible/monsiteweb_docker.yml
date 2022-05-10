@@ -7,9 +7,9 @@
     - name: Copy a Dockerfile file on the remote machine
       copy:
         src: "{{dockerfile_path}}/Dockerfile"
-        dest: /tmp/Dockerfile
+        dest: /home/azureuser/Dockerfile
     - name: Build image using cache source
-      command: "docker build --no-cache -f /tmp/Dockerfile -t monsiteweb_image ."
+      command: docker build --no-cache -t monsiteweb_image .
     - name: Stop a container
       docker_container:
         name: monsiteweb
