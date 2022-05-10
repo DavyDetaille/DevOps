@@ -12,3 +12,5 @@ RUN cp -f DevOps/Website/index.html /var/www/html/index.html
 CMD ["cd","DevOps"]
 CMD ["git","pull","https://github.com/DavyDetaille/DevOps.git"]
 CMD ["/usr/sbin/httpd","-D","FOREGROUND"]
+
+test
