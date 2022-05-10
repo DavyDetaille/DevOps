@@ -9,7 +9,7 @@
         src: "{{dockerfile_path}}/Dockerfile"
         dest: /tmp/Dockerfile
     - name: Build image using cache source
-      command: "docker build --no-cache -f tmp/Dockerfile -t monsiteweb_image ."
+      command: "docker build --no-cache -f /tmp/Dockerfile -t monsiteweb_image ."
     - name: Stop a container
       docker_container:
         name: monsiteweb
