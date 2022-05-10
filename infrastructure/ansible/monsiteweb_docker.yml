@@ -5,7 +5,7 @@
   become: yes
   tasks:
     - name: Build image using cache source
-      command: docker build --no-cache -t monsiteweb_image .
+      command: "docker build --no-cache -f {{dockerfile_path}}/Dockerfile -t monsiteweb_image ."
     - name: Stop a container
       docker_container:
         name: monsiteweb
