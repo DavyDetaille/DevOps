@@ -1,7 +1,8 @@
 ---
 - name: playbook de configuration du host pour le site web
-  hosts: localhost
+  hosts: master_host
   become: yes
+  remote_user: instructor
   tasks:
     - name: Add Microsoft azure-cli repository
       copy:

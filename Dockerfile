@@ -10,3 +10,4 @@ RUN git clone https://github.com/DavyDetaille/DevOps.git
 RUN cp -f DevOps/Website/index.html /var/www/html/index.html
 # Simple startup script to avoid some issues observed with container restart
 CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
+test
